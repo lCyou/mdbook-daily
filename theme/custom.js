@@ -10,8 +10,7 @@
 })();
 
 (function () {
-  var as = document.querySelectorAll('a.header')
-  var newList = document.createElement('ul');
+  var as = document.querySelectorAll('a.header');
   newList.setAttribute('class', 'innerLink');
   for (var i = 1, l = as.length; i < l; i += 1) {
     var a = as[i];

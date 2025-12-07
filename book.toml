@@ -1,6 +1,6 @@
 [book]
 title = "Note to self: Record even the smallest something"
-authors = ["K.Yamakawa"]
+authors = ["lCyou"]
 language = "en"
 
 [output.html]
@@ -9,4 +9,8 @@ additional-js = ["theme/custom.js"]
 mathjax-support = true              
 no-section-label = true       
 git-repository-url = "https://github.com/lCyou/mdbook-daily"
-git-repository-icon = "fab-github"      
+git-repository-icon = "fab-github"
+
+[output.html.fold]
+enable = true
+level = 1
