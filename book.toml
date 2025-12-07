@@ -4,6 +4,7 @@ authors = ["lCyou"]
 language = "en"
 
 [output.html]
+default-theme = "rust"
 additional-css = ["theme/custom.css"]
 additional-js = ["theme/custom.js"] 
 mathjax-support = true              
