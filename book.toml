@@ -2,3 +2,11 @@
 title = "Note to self: Record even the smallest something"
 authors = ["K.Yamakawa"]
 language = "en"
+
+[output.html]
+additional-css = ["theme/custom.css"]
+additional-js = ["theme/custom.js"] 
+mathjax-support = true              
+no-section-label = true       
+git-repository-url = "https://github.com/lCyou/mdbook-daily"
+git-repository-icon = "fab-github"      
