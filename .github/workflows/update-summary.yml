@@ -11,11 +11,7 @@
 name: Update SUMMARY.md
 
 on:
-  push:
-    paths:
-      - 'src/**/*.md'
-      - '!src/SUMMARY.md'
-  workflow_dispatch:
+  workflow_call:
 
 permissions:
   contents: write
