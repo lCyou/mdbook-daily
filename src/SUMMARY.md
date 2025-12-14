@@ -23,4 +23,3 @@
 # Techlog
 
 - [auth-4.0](./techlog/auth-4.0/README.md)
-  - [2024-05-15](./techlog/auth-4.0/2024-05-15.md)
