@@ -3,7 +3,7 @@ name: publish my note
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 18 * * 0'  # Weekly at 3am JTC on Monday
+    - cron: '0 18 * * 0'  # Weekly at 3am JST on Monday
 
 jobs:
   update_summary:
