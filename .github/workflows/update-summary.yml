@@ -1,0 +1,46 @@
+name: Update SUMMARY.md
+
+on:
+  push:
+    paths:
+      - 'src/**/*.md'
+      - '!src/SUMMARY.md'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-summary:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Update SUMMARY.md
+        run: python3 update_summary.py
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if git diff --quiet src/SUMMARY.md; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add src/SUMMARY.md
+          git commit -m "Auto-update SUMMARY.md based on directory structure"
+          git push
