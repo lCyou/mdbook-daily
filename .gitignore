@@ -1,3 +1,5 @@
 book
 .DS_Store
 
+# Rust binary
+update_summary
