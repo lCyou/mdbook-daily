@@ -3,6 +3,3 @@ book
 
 # Rust binary
 update_summary
-
-# Added by cargo
-/target

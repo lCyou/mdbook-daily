@@ -43,12 +43,17 @@ fn process_directory(base_path: &Path, dir_path: &Path, level: usize) -> io::Res
     
     // Process subdirectories
     for subdir in subdirs {
-        let dir_name = subdir.file_name().unwrap().to_string_lossy();
+        let dir_name = subdir.file_name()
+            .expect("Failed to get directory name")
+            .to_string_lossy();
         let readme_path = subdir.join("README.md");
         
         if readme_path.exists() {
-            let relative_path = readme_path.strip_prefix(base_path).unwrap();
-            let relative_path_str = relative_path.to_str().unwrap().replace('\\', "/");
+            let relative_path = readme_path.strip_prefix(base_path)
+                .expect("Failed to compute relative path");
+            let relative_path_str = relative_path.to_str()
+                .expect("Path contains invalid UTF-8")
+                .replace('\\', "/");
             lines.push(format!("{}- [{}](./{})", indent, dir_name, relative_path_str));
             
             // Process files in subdirectory with increased indentation
@@ -66,14 +71,19 @@ fn process_directory(base_path: &Path, dir_path: &Path, level: usize) -> io::Res
     
     // Process markdown files (excluding README.md as it's already processed)
     for md_file in md_files {
-        let file_name = md_file.file_name().unwrap().to_string_lossy();
+        let file_name = md_file.file_name()
+            .expect("Failed to get file name")
+            .to_string_lossy();
         if file_name == "README.md" {
             continue;
         }
         
         if let Some(display_name) = get_display_name(&file_name) {
-            let relative_path = md_file.strip_prefix(base_path).unwrap();
-            let relative_path_str = relative_path.to_str().unwrap().replace('\\', "/");
+            let relative_path = md_file.strip_prefix(base_path)
+                .expect("Failed to compute relative path");
+            let relative_path_str = relative_path.to_str()
+                .expect("Path contains invalid UTF-8")
+                .replace('\\', "/");
             lines.push(format!("{}- [{}](./{})", indent, display_name, relative_path_str));
         }
     }
@@ -103,7 +113,9 @@ fn generate_summary(src_path: &Path) -> io::Result<String> {
     
     for subdir in subdirs {
         // Create section header
-        let dir_name = subdir.file_name().unwrap().to_string_lossy();
+        let dir_name = subdir.file_name()
+            .expect("Failed to get directory name")
+            .to_string_lossy();
         let section_name = capitalize_first(&dir_name);
         lines.push(format!("# {}", section_name));
         lines.push(String::new());
