@@ -1,3 +1,13 @@
+# Workflow to automatically update SUMMARY.md based on the /src directory structure
+#
+# This workflow triggers when:
+# - Any markdown file is added/modified in /src/** (except SUMMARY.md itself)
+# - Manually triggered via workflow_dispatch
+#
+# The workflow will:
+# 1. Run update_summary.py script to regenerate SUMMARY.md
+# 2. Commit and push changes if SUMMARY.md was modified
+#
 name: Update SUMMARY.md
 
 on:
