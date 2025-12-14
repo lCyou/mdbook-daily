@@ -1,26 +1,12 @@
 # 2025
 
-aaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaa
-
-aaaaaaaaaaaaaaaaa
+2025で思ったことを、めっちゃ適当に書く
+（発言は個人のものであり、所属する一切の組織とは関係ありません。）
 
 ## Essay for the year 2025
 
-aaaaaaaaaaaaaaaaa
+今年、12月なのであと一月、最近また個人開発ができそうな感じなのでちゃんとメモしていきたい。
+あと小説とか読み始めたので感想とかも書き溜めていきたい。
 
-aaaaaaaa
-
-### Contents
-
-aaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaa
-
-aaaaaaaaaaaaaaaaa
-
-## 1207
-
-aaaaaaaaaaaaaaaaa
+そんな感じで始めてみました。
 
