@@ -5,7 +5,7 @@
 # - Manually triggered via workflow_dispatch
 #
 # The workflow will:
-# 1. Run update_summary.py script to regenerate SUMMARY.md
+# 1. Run update_summary (Rust) to regenerate SUMMARY.md
 # 2. Commit and push changes if SUMMARY.md was modified
 #
 name: Update SUMMARY.md
@@ -29,13 +29,14 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
+      - name: Set up Rust
+        uses: actions-rust-lang/setup-rust-toolchain@v1
+
+      - name: Compile update_summary
+        run: rustc update_summary.rs -o update_summary
 
       - name: Update SUMMARY.md
-        run: python3 update_summary.py
+        run: ./update_summary
 
       - name: Check for changes
         id: check_changes
