@@ -4,7 +4,7 @@ Script to generate SUMMARY.md based on the directory structure under /src
 """
 import os
 from pathlib import Path
-from typing import List, Tuple
+from typing import List, Tuple, Optional
 
 def get_display_name(filename: str) -> str:
     """Convert filename to display name"""
@@ -94,7 +94,7 @@ def generate_summary(src_path: Path) -> str:
     
     return '\n'.join(lines)
 
-def main():
+def main() -> int:
     # Get the src directory path
     script_dir = Path(__file__).parent
     src_path = script_dir / 'src'
